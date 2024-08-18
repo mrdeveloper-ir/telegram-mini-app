@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 
 // Redux
@@ -19,7 +18,6 @@ import WebApp from "@twa-dev/sdk";
 // App + Styles
 import App from "./App";
 import "./index.css";
-import axios from "axios";
 
 // Hide the main button
 WebApp.MainButton.hide();
