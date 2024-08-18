@@ -31,6 +31,7 @@ WebApp.enableClosingConfirmation();
 
 window.open = (function (open) {
   return function (url, _, features) {
+    console.log(url, _, features);
     return open.call(window, url, "_blank", features);
   };
 })(window.open);
