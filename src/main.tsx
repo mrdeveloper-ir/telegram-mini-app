@@ -19,6 +19,7 @@ import WebApp from "@twa-dev/sdk";
 // App + Styles
 import App from "./App";
 import "./index.css";
+import axios from "axios";
 
 // Hide the main button
 WebApp.MainButton.hide();
@@ -29,13 +30,6 @@ WebApp.ready();
 // Enable the closing confirmation
 WebApp.enableClosingConfirmation();
 
-window.open = (function (open) {
-  return function (url, _, features) {
-    console.log(url, _, features);
-    return open.call(window, url, "_blank", features);
-  };
-})(window.open);
-
 // Create the WalletConnect modal
 createWalletConnectModal();
 
@@ -44,11 +38,9 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <TonConnectUIProvider manifestUrl="https://softstack.github.io/telegram-mini-app/tonconnect-manifest.json">
-        <App />
-      </TonConnectUIProvider>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <TonConnectUIProvider manifestUrl="https://softstack.github.io/telegram-mini-app/tonconnect-manifest.json">
+      <App />
+    </TonConnectUIProvider>
+  </Provider>
 );
