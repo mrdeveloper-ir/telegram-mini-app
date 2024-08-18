@@ -7,17 +7,17 @@ export const createWalletConnectModal = () => {
   // 2. Set chains
   const mainnet_config = {
     chainId: 56,
-    name: "BNB Smart Chain Mainnet",
+    name: "BNB Smart Chain",
     currency: "BNB",
     explorerUrl: "https://bscscan.com",
-    rpcUrl: "wss://bsc-rpc.publicnode.com",
+    rpcUrl: "https://rpc.ankr.com/bsc",
   };
 
   // 3. Create a metadata object
   const metadata = {
     name: "PINEYE",
     description: "Connect your Binance Smart Chain Wallet",
-    url: "https://softstack.github.io/telegram-mini-app/", // origin must match your domain & subdomain
+    url: "https://mrdeveloper-ir.github.io/telegram-mini-app/", // origin must match your domain & subdomain
     icons: [""],
   };
 
