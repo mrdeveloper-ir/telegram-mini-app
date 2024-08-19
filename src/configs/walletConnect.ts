@@ -1,5 +1,4 @@
 import { createWeb3Modal, defaultConfig } from "@web3modal/ethers/react";
-import axios from "axios";
 import { Logger } from "../utils/logger";
 
 export const createWalletConnectModal = () => {
