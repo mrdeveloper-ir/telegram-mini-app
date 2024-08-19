@@ -44,7 +44,9 @@ export const createWalletConnectModal = () => {
 
       return open.call(
         window,
-        `https://link.trustwallet.com/wc?uri=${url}`,
+        `https://link.trustwallet.com/wc?uri=${
+          url?.toString().split("uri=")[1]
+        }`,
         "_blank",
         features
       );
