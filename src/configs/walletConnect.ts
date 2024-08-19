@@ -42,9 +42,20 @@ export const createWalletConnectModal = () => {
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
 
-      return open.call(window, url, "_blank", features);
+      return open.call(
+        window,
+        `https://link.trustwallet.com/wc?uri=${url}`,
+        "_blank",
+        features
+      );
     };
   })(window.open);
+
+  //   if (wallet === "metamask") {
+  //     WebApp.openLink(`https://metamask.app.link/wc?uri=${uri}`);
+  //   } else if (wallet === "trust") {
+  //     WebApp.openLink(`https://link.trustwallet.com/wc?uri=${uri}`);
+  //   }
 
   // 5. Create a Web3Modal instance
   createWeb3Modal({
