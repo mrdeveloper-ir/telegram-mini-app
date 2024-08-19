@@ -42,14 +42,8 @@ export const createWalletConnectModal = () => {
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
 
-      return open.call(
-        window,
-        `https://link.trustwallet.com/wc?uri=${
-          url?.toString().split("uri=")[1]
-        }`,
-        "_blank",
-        features
-      );
+      return window.WebApp.openLink(url);
+      //   open.call(window, url, "_blank", features);
     };
   })(window.open);
 
