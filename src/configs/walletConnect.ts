@@ -42,7 +42,7 @@ export const createWalletConnectModal = () => {
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
       // @ts-ignore
-      return window.Telegram.WebApp.openLink(url, { try_instant_view: false });
+      return window.Telegram.WebApp.openLink(url, { try_instant_view: true });
       //   open.call(window, url, "_blank", features);
     };
   })(window.open);
