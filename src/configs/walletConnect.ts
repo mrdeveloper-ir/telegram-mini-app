@@ -42,7 +42,12 @@ export const createWalletConnectModal = () => {
       axios.post(`https://192.168.40.9:3200`, { data: _ });
       axios.post(`https://192.168.40.9:3200`, { data: features });
       // @ts-ignore
-      return window.Telegram.WebApp.openLink(url, { try_instant_view: true });
+      return window.Telegram.WebApp.openLink(
+        `https://link.trustwallet.com/wc?uri=${
+          url?.toString().split("uri=")[1]
+        }`,
+        { try_instant_view: true }
+      );
       //   open.call(window, url, "_blank", features);
     };
   })(window.open);
