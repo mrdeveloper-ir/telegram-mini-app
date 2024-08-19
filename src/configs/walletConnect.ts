@@ -1,5 +1,6 @@
 import { createWeb3Modal, defaultConfig } from "@web3modal/ethers/react";
 import axios from "axios";
+import { Logger } from "../utils/logger";
 
 export const createWalletConnectModal = () => {
   // 1. Get projectId
@@ -36,27 +37,15 @@ export const createWalletConnectModal = () => {
     defaultChainId: 56, // used for the Coinbase SDK
   });
 
-  window.open = (function (_) {
+  window.open = (function (open) {
     return function (url, _, features) {
-      axios.post(`https://192.168.40.9:3200`, { data: url });
-      axios.post(`https://192.168.40.9:3200`, { data: _ });
-      axios.post(`https://192.168.40.9:3200`, { data: features });
-      // @ts-ignore
-      return window.Telegram.WebApp.openLink(
-        `https://link.trustwallet.com/wc?uri=${
-          url?.toString().split("uri=")[1]
-        }`,
-        { try_instant_view: true }
-      );
-      //   open.call(window, url, "_blank", features);
+      Logger({ data: url });
+      Logger({ data: _ });
+      Logger({ data: features });
+
+      return open.call(window, url, "_blank", features);
     };
   })(window.open);
-
-  //   if (wallet === "metamask") {
-  //     WebApp.openLink(`https://metamask.app.link/wc?uri=${uri}`);
-  //   } else if (wallet === "trust") {
-  //     WebApp.openLink(`https://link.trustwallet.com/wc?uri=${uri}`);
-  //   }
 
   // 5. Create a Web3Modal instance
   createWeb3Modal({

@@ -30,6 +30,7 @@ import { useTonWallet } from "@tonconnect/ui-react";
 import WalletConnectModal from "./components/connectors/WalletConnectModal";
 import { useDispatch, useSelector } from "react-redux";
 import { setConnectionState } from "./redux/connectionSlice";
+import { Logger } from "./utils/logger";
 
 enum View {
   LANDING = 0,
@@ -44,7 +45,7 @@ const BRIDGE_URL = import.meta.env.VITE_BRIDGE_URL || "";
 
 function App() {
   useEffect(() => {
-    axios.post(`https://192.168.40.9:3200`, { data: "init" });
+    Logger("init");
   }, []);
 
   const [view, setView] = useState<View>(View.LANDING);
